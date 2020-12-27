@@ -49,8 +49,8 @@ class MoviesListFragment : BaseFragment() {
         mBinding = it
     }.root
 
-    override fun onStart() {
-        super.onStart()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         initUI()
         initAdapter()

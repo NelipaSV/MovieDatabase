@@ -20,17 +20,19 @@ class MovieDetailsVM @ViewModelInject constructor(
     fun getMovieDetails(): LiveData<MovieDB> = movieLiveData
 
     fun loadMovieDetails(movieID: Int) {
-        try {
-            viewModelScope.launch(Dispatchers.IO) {
+
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
                 themoviedbApi.getMovieDetails(
                     movieId = movieID,
                     apiKey = Constants.MOVIE_API_KEY
                 ).also { movie ->
                     movieLiveData.postValue(movie)
                 }
+            } catch (e: Exception) {
+                handleResponseError(responseHandler.handleException(e))
+                e.printStackTrace()
             }
-        } catch (e: Exception) {
-            handleError(responseHandler.handleException(e))
         }
     }
 }

@@ -43,8 +43,9 @@ class MovieListVM @ViewModelInject constructor(
 
     fun loadPageTrendingMovies() {
         isTrendingMovies = true
-        try {
-            viewModelScope.launch(Dispatchers.IO) {
+
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
                 themoviedbApi.getTrending(
                     page = page,
                     apiKey = MOVIE_API_KEY
@@ -60,18 +61,20 @@ class MovieListVM @ViewModelInject constructor(
                         displayMovies(isTrendingMovies)
                     }
                 }
-
+            } catch (e: Exception) {
+                handleResponseError(responseHandler.handleException(e))
+                e.printStackTrace()
             }
-        } catch (e: Exception) {
-            handleError(responseHandler.handleException(e))
         }
+
     }
 
     fun loadPageSearchMovies(searchQuery: String = lastSearchedQuery) {
         lastSearchedQuery = searchQuery
         isTrendingMovies = false
-        try {
-            viewModelScope.launch(Dispatchers.IO) {
+
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
                 themoviedbApi.searchMovie(
                     page = page,
                     apiKey = MOVIE_API_KEY,
@@ -88,10 +91,10 @@ class MovieListVM @ViewModelInject constructor(
                         displayMovies(isTrendingMovies)
                     }
                 }
-
+            } catch (e: Exception) {
+                handleResponseError(responseHandler.handleException(e))
+                e.printStackTrace()
             }
-        } catch (e: Exception) {
-            handleError(responseHandler.handleException(e))
         }
     }
 

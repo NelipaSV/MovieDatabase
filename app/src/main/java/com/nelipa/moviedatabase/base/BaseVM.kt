@@ -13,7 +13,7 @@ abstract class BaseVM: ViewModel() {
     private var error = MutableLiveData<Event<String?>>()
 
     fun getLoadError(): LiveData<Event<String?>> = error
-    fun handleError(error: ResponseError?) {
-        this.error.value = Event(error?.message)
+    fun handleResponseError(error: ResponseError?) {
+        this.error.postValue(Event(error?.message))
     }
 }

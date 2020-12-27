@@ -15,8 +15,8 @@
             android:layout_marginEnd="8dp"
             android:padding="8dp"
             motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintTop_toTopOf="@+id/til_search_text"
-            motion:layout_constraintBottom_toBottomOf="@+id/til_search_text"
+            motion:layout_constraintTop_toTopOf="@+id/iv_search_query"
+            motion:layout_constraintBottom_toBottomOf="@+id/iv_search_query"
             motion:srcCompat="@drawable/ic_clear">
             <PropertySet android:visibility="gone" />
             <Transform android:rotation="0" />

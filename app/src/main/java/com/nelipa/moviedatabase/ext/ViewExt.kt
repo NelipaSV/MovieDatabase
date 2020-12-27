@@ -28,7 +28,7 @@ fun View.snack(
 fun View.snack(
     message: String,
     actionText: String,
-    duration: Int = Snackbar.LENGTH_INDEFINITE,
+    duration: Int = Snackbar.LENGTH_LONG,
     onClick: (View) -> Unit
 ) = Snackbar.make(this, message, duration)
     .setAction(actionText, onClick)

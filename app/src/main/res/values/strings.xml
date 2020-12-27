@@ -2,7 +2,7 @@
     <string name="app_name">MovieDatabase</string>
 
     <string name="fragment_movies_list_search_hint">Enter text to search</string>
-    <string name="fragment_movies_list_search_error_blank">Text can\'n be blank</string>
+    <string name="fragment_movies_list_search_error_blank">Text can\'t be blank</string>
 
     <string name="fragment_movies_list_exit_text">Do You want exit from App?</string>
     <string name="fragment_movies_list_exit">Exit</string>

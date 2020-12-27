@@ -30,8 +30,8 @@
         android:scaleType="centerCrop"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/til_search_text"
-        app:layout_constraintBottom_toBottomOf="@+id/til_search_text"
+        app:layout_constraintTop_toTopOf="@+id/iv_search_query"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_search_query"
         app:srcCompat="@drawable/ic_clear"
         tools:ignore="ContentDescription" />
 
