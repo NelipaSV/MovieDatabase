@@ -14,117 +14,128 @@
             type="com.nelipa.moviedatabase.utility.ConvertingUtils" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#D6D6D6">
 
-        <TextView
-            android:id="@+id/tv_movie_title"
-            style="@style/text_black_15_medium"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:gravity="center"
-            android:text="@{movie.title}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_back_arrow"
-            tools:text="Title" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/iv_movie_poster"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            url="@{movie.posterPath}"
-            isCircle="@{false}"
-            app:layout_constraintDimensionRatio="1:0.6"
-            app:layout_constraintEnd_toEndOf="@+id/tv_movie_title"
-            app:layout_constraintStart_toStartOf="@+id/tv_movie_title"
-            app:layout_constraintTop_toBottomOf="@+id/tv_movie_title"
-            tools:srcCompat="@tools:sample/avatars" />
+            <TextView
+                android:id="@+id/tv_movie_title"
+                style="@style/text_black_15_medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:text="@{movie.title}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_back_arrow"
+                tools:text="Title" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_percent="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
+            <ImageView
+                android:id="@+id/iv_movie_poster"
+                isCircle="@{false}"
+                url="@{movie.posterPath}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintDimensionRatio="1:1.3"
+                app:layout_constraintEnd_toEndOf="@+id/tv_movie_title"
+                app:layout_constraintStart_toStartOf="@+id/tv_movie_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_movie_title"
+                tools:srcCompat="@tools:sample/avatars" />
 
-        <TextView
-            android:id="@+id/tv_movie_owerview"
-            style="@style/text_black_15_light"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@{movie.overview}"
-            app:layout_constraintEnd_toEndOf="@+id/iv_movie_poster"
-            app:layout_constraintStart_toStartOf="@+id/iv_movie_poster"
-            app:layout_constraintTop_toBottomOf="@+id/iv_movie_poster"
-            tools:text="Overview" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_percent="0.5"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
-            android:id="@+id/iv_back_arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_arrow_back" />
+            <TextView
+                android:id="@+id/tv_movie_owerview"
+                style="@style/text_black_15_light"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@{movie.overview}"
+                app:layout_constraintEnd_toEndOf="@+id/iv_movie_poster"
+                app:layout_constraintStart_toStartOf="@+id/iv_movie_poster"
+                app:layout_constraintTop_toBottomOf="@+id/iv_movie_poster"
+                tools:text="Overview" />
 
-        <TextView
-            android:id="@+id/tv_genres_title"
-            style="@style/text_black_15"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="@string/movie_details_genres"
-            app:layout_constraintEnd_toStartOf="@+id/guideline"
-            app:layout_constraintStart_toStartOf="@+id/tv_movie_owerview"
-            app:layout_constraintTop_toBottomOf="@+id/tv_movie_owerview" />
+            <ImageView
+                android:id="@+id/iv_back_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_arrow_back" />
 
-        <TextView
-            android:id="@+id/tv_genres"
-            style="@style/text_black_15_light"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@{convertingUtils.getGenresList(movie)}"
-            app:layout_constraintEnd_toEndOf="@+id/tv_genres_title"
-            app:layout_constraintStart_toStartOf="@+id/tv_genres_title"
-            app:layout_constraintTop_toBottomOf="@+id/tv_genres_title"
-            tools:text="genres list" />
+            <TextView
+                android:id="@+id/tv_genres_title"
+                style="@style/text_black_15"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/movie_details_genres"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="@+id/tv_movie_owerview"
+                app:layout_constraintTop_toBottomOf="@+id/tv_movie_owerview" />
 
-        <TextView
-            android:id="@+id/tv_movie_production_title"
-            style="@style/text_black_15"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/movie_details_production_companies"
-            app:layout_constraintEnd_toEndOf="@+id/tv_movie_owerview"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/tv_movie_owerview" />
+            <TextView
+                android:id="@+id/tv_genres"
+                style="@style/text_black_15_light"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="@{convertingUtils.getGenresList(movie)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tv_genres_title"
+                app:layout_constraintStart_toStartOf="@+id/tv_genres_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_genres_title"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="genres list" />
 
-        <TextView
-            android:id="@+id/tv_movie_production"
-            style="@style/text_black_15_light"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@{convertingUtils.getProductionsList(movie)}"
-            app:layout_constraintEnd_toEndOf="@+id/tv_movie_production_title"
-            app:layout_constraintStart_toStartOf="@+id/tv_movie_production_title"
-            app:layout_constraintTop_toBottomOf="@+id/tv_movie_production_title"
-            tools:text="Companies list" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tv_movie_production_title"
+                style="@style/text_black_15"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/movie_details_production_companies"
+                app:layout_constraintEnd_toEndOf="@+id/tv_movie_owerview"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/tv_movie_owerview" />
+
+            <TextView
+                android:id="@+id/tv_movie_production"
+                style="@style/text_black_15_light"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="@{convertingUtils.getProductionsList(movie)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tv_movie_production_title"
+                app:layout_constraintStart_toStartOf="@+id/tv_movie_production_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_movie_production_title"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="Companies list" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>
