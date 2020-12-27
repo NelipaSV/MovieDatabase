@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">MovieDatabase</string>
+
+    <string name="fragment_movies_list_search_hint">Enter text to search</string>
+    <string name="fragment_movies_list_search_error_blank">Text can\'n be blank</string>
+
+    <string name="fragment_movies_list_exit_text">Do You want exit from App?</string>
+    <string name="fragment_movies_list_exit">Exit</string>
+    <string name="fragment_movies_list_load_fail">Loading fail,\n%1s</string>
+
+    <string name="fragment_movies_details_retry">RETRY</string>
+    <string name="fragment_movies_details_load_fail">Loading fail,\n%1s</string>
+
+    <string name="movie_details_genres">Genres</string>
+    <string name="movie_details_production_companies">Production companies</string>
+
+</resources>

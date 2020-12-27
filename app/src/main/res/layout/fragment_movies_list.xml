@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.nelipa.moviedatabase.views.MultiListenerMotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ml_movies_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D6D6D6"
+    app:layoutDescription="@xml/movies_list_anim">
+
+    <ImageView
+        android:id="@+id/iv_search_query"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:padding="8dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toStartOf="@id/iv_clear_query"
+        app:layout_constraintTop_toTopOf="@+id/til_search_text"
+        app:srcCompat="@drawable/ic_search"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/iv_clear_query"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:padding="8dp"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/til_search_text"
+        app:layout_constraintBottom_toBottomOf="@+id/til_search_text"
+        app:srcCompat="@drawable/ic_clear"
+        tools:ignore="ContentDescription" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_search_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/fragment_movies_list_search_hint"
+        android:textColorHint="@color/purple_200"
+        app:boxCollapsedPaddingTop="1dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:hintTextColor="@color/purple_200"
+        app:layout_constraintEnd_toStartOf="@+id/iv_search_query"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_search_text"
+            style="@style/text_black_15"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/shape_background_edit_text"
+            android:ellipsize="end"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLength="255"
+            android:maxLines="1"
+            android:paddingStart="8dp"
+            android:paddingTop="0dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="0dp"
+            tools:text="Text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_search_result"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_search_text"
+        tools:itemCount="5"
+        tools:listitem="@layout/item_movie">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</com.nelipa.moviedatabase.views.MultiListenerMotionLayout>
