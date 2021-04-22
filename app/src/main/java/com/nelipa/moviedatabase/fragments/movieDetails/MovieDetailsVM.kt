@@ -8,11 +8,14 @@ import com.nelipa.moviedatabase.api.ThemoviedbApi
 import com.nelipa.moviedatabase.base.BaseVM
 import com.nelipa.moviedatabase.constants.Constants
 import com.nelipa.moviedatabase.models.movie.MovieDB
+import com.nelipa.moviedatabase.utility.DefaultDispatcherProvider
+import com.nelipa.moviedatabase.utility.DispatcherProvider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MovieDetailsVM @ViewModelInject constructor(
-    private val themoviedbApi: ThemoviedbApi
+    private val themoviedbApi: ThemoviedbApi,
+    private val dispatchers: DispatcherProvider = DefaultDispatcherProvider()
 ) : BaseVM() {
 
     private var movieLiveData = MutableLiveData<MovieDB>()
@@ -21,7 +24,7 @@ class MovieDetailsVM @ViewModelInject constructor(
 
     fun loadMovieDetails(movieID: Int) {
 
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(dispatchers.io()) {
             try {
                 themoviedbApi.getMovieDetails(
                     movieId = movieID,

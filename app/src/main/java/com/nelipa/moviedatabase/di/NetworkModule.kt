@@ -1,6 +1,8 @@
 package com.nelipa.moviedatabase.di
 
 import com.nelipa.moviedatabase.api.ThemoviedbApi
+import com.nelipa.moviedatabase.utility.DefaultDispatcherProvider
+import com.nelipa.moviedatabase.utility.DispatcherProvider
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -36,5 +38,10 @@ class NetworkModule {
     @Provides
     fun createThemoviedbService(): ThemoviedbApi {
         return createRetrofitClient().create(ThemoviedbApi::class.java)
+    }
+
+    @Provides
+    fun createDispatcher(): DispatcherProvider {
+        return DefaultDispatcherProvider()
     }
 }
