@@ -212,7 +212,7 @@ class MoviesListFragment : BaseFragment() {
     }
 
     private fun observeForError() {
-        mMainVM.getLoadError().observe(this) { event ->
+        mMainVM.getLoadError().observe(viewLifecycleOwner) { event ->
             event?.getContentIfNotHandled()?.let { error ->
                 hideLoader()
                 snack = view?.snack(
